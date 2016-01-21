@@ -10,6 +10,7 @@ module MTG
     property :border
     property :mkm_id
     property :mkm_name
+    property :block
     property :old_code, as: :oldCode
     property :online_only, as: :onlineOnly
     property :release_date, as: :releaseDate
