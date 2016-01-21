@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.magicthegathering.io/v1/cards/3239482932
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: 'Not Found '
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 21 Jan 2016 01:36:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '36'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d009a873b3ca6e218dd10cc3a6db7ee131453340194; expires=Fri, 20-Jan-17
+        01:36:34 GMT; path=/; domain=.magicthegathering.io; HttpOnly
+      X-Request-Id:
+      - 6363434b-8e20-48b2-8c27-41c55c934333
+      X-Runtime:
+      - '0.246968'
+      Vary:
+      - Origin
+      Via:
+      - 1.1 vegur
+      Cf-Ray:
+      - 267f49f952762513-ORD
+    body:
+      encoding: UTF-8
+      string: '{"status":"404","error":"Not Found"}'
+    http_version: 
+  recorded_at: Thu, 21 Jan 2016 01:36:35 GMT
+recorded_with: VCR 2.9.3

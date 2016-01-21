@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.magicthegathering.io/v1/sets/invalid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: 'Not Found '
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Thu, 21 Jan 2016 01:37:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '36'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d7334e8da75a007f177e6a0514b3b372a1453340233; expires=Fri, 20-Jan-17
+        01:37:13 GMT; path=/; domain=.magicthegathering.io; HttpOnly
+      X-Request-Id:
+      - cb52777e-ada9-49ff-97f2-ddd451ad6db0
+      X-Runtime:
+      - '0.008176'
+      Vary:
+      - Origin
+      Via:
+      - 1.1 vegur
+      Cf-Ray:
+      - 267f4aec9c96259d-ORD
+    body:
+      encoding: UTF-8
+      string: '{"status":"404","error":"Not Found"}'
+    http_version: 
+  recorded_at: Thu, 21 Jan 2016 01:37:13 GMT
+recorded_with: VCR 2.9.3
