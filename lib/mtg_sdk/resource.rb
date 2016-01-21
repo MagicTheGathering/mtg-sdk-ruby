@@ -1,3 +1,5 @@
+require_relative 'rest_client'
+
 module MTG
   class Resource
   

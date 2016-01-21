@@ -1,5 +1,4 @@
 require_relative 'representers/card_representer'
-require_relative 'rest_client'
 require_relative 'resource'
 
 module MTG

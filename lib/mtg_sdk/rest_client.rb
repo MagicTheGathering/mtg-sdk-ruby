@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require 'open-uri'
 
 module MTG
   module RestClient

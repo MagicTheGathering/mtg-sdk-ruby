@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "multi_json"
   spec.add_dependency "roar"
   spec.add_dependency "virtus"
+  spec.add_dependency "open-uri"
 end

@@ -1,4 +1,3 @@
-require_relative 'rest_client'
 require_relative 'resource'
 
 module MTG
