@@ -59,4 +59,14 @@ class CardTest < Minitest::Test
       assert_equal name, parameters[:name]
     end 
   end
+  
+  def test_all_returns_cards
+    VCR.use_cassette('all_filtered') do
+      cards = MTG::Card.where(supertypes: 'legendary')
+                       .where(subtypes: 'elf,warrior')
+                       .all
+                       
+      puts cards.length
+    end
+  end
 end

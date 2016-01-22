@@ -26,6 +26,24 @@ module MTG
       
       new.from_json(response.body['card'].to_json)
     end
+
+    # Get all cards from a query by paging through data
+    #
+    # @return [Array<Card>] Array of Card objects
+    def self.all
+      cards = []
+      page = 0
+         
+      while true
+        where(page: page += 1)
+        response = RestClient.get('cards', query[:parameters])
+        data = response.body['cards']      
+        data.empty? ? break : data.each {|card| cards << new.from_json(card.to_json)}
+      end
+      
+      @query = nil
+      cards
+    end
     
     # Execute a query and convert the response
     # into a list of Card objects

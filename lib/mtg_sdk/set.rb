@@ -26,6 +26,13 @@ module MTG
       new.from_json(response.body['set'].to_json)
     end
     
+    # Get all sets from a query
+    #
+    # @return [Array<Set>] Array of Set objects
+    def self.all
+      get
+    end
+    
     # Generate a booster pack for a specific set
     #
     # @param code [String] the Set code
