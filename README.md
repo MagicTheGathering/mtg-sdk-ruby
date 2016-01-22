@@ -124,7 +124,15 @@ To change the API version (currently defaults to version 1)
 
 #### Filter Cards via query parameters
 
-    cards = MTG::Card.where(set: ktk).where(subtypes: 'warrior,human').get
+    cards = MTG::Card.where(set: ktk).where(subtypes: 'warrior,human').all
+    
+#### Find all cards (will take awhile)
+
+    cards = MTG::Card.all
+    
+#### Get all cards, but only a specific page of data
+
+    cards = MTG::Card.where(page: 5).where(pageSize: 100).get
     
 #### Find a set by code
 
@@ -132,7 +140,11 @@ To change the API version (currently defaults to version 1)
     
 #### Filter sets via query parameters
 
-    sets = MTG::Set.where(name: khans).get
+    sets = MTG::Set.where(name: khans).all
+    
+#### Get all Sets
+
+    sets = MTG::Set.all
     
 #### Get all Types
 
