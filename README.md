@@ -1,6 +1,6 @@
 # Magic: The Gathering SDK
 
-[![Build Status](https://travis-ci.org/MagicTheGathering/mtg-sdk-ruby.svg?branch=master)](https://travis-ci.org/MagicTheGathering/mtg-sdk-ruby)
+[![Gem Version](https://badge.fury.io/rb/mtg_sdk.svg)](https://badge.fury.io/rb/mtg_sdk) [![Build Status](https://travis-ci.org/MagicTheGathering/mtg-sdk-ruby.svg?branch=master)](https://travis-ci.org/MagicTheGathering/mtg-sdk-ruby)
 
 This is the Magic: The Gathering SDK Ruby implementation. It is a wrapper around the MTG API of [magicthegathering.io](http://magicthegathering.io/).
 
