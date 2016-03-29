@@ -40,34 +40,27 @@ class CardTest < Minitest::Test
     end
   end
   
-  def test_where_and_get_returns_cards
+  def test_where_with_page_size_and_page_returns_cards
     VCR.use_cassette('query_cards_pageSize') do
-      cards = MTG::Card.where(pageSize: 10).get
+      cards = MTG::Card.where(pageSize: 10).where(page: 1).all
 
-      # make sure we got a ton of cards
+      # make sure we got only 10 cards back
       assert cards.length == 10
       assert cards.kind_of?(Array)
       assert cards.first.kind_of?(MTG::Card)
     end
   end
-  
-  def test_where_appends_to_query
-    VCR.use_cassette('query_zurgo') do
-      name = 'zurgo'
-      query = MTG::Card.where(name: name).query
-      parameters = query[:parameters]
-      MTG::Card.get
-      assert_equal name, parameters[:name]
-    end 
-  end
-  
+
   def test_all_returns_cards
     VCR.use_cassette('all_filtered') do
       cards = MTG::Card.where(supertypes: 'legendary')
                        .where(subtypes: 'elf,warrior')
                        .all
-                       
-      puts cards.length
+
+      first_card = cards[0]
+      assert first_card.supertypes.include? 'Legendary'
+      assert first_card.subtypes.include? 'Elf'
+      assert first_card.subtypes.include? 'Warrior'
     end
   end
 end

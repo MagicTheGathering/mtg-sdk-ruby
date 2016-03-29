@@ -1,65 +1,44 @@
 require_relative 'representers/card_representer'
-require_relative 'resource'
 
 module MTG
-  class Card < Resource
+  class Card
     include Roar::JSON
     include CardRepresenter
-    include RestClient
-    
+
     attr_accessor :name, :layout, :names, :mana_cost, :cmc, :colors, :type, :supertypes, :subtypes, :types,
                   :rarity, :text, :flavor, :artist, :number, :power, :toughness, :loyalty, :multiverse_id, :variations,
                   :watermark, :border, :timeshifted, :hand, :life, :reserved, :release_date, :starter,
                   :rulings, :foreign_names, :printings, :original_text, :original_type, :legalities,
                   :source, :image_url, :set, :id
-                
+    
+    # Get the resource string
+    #
+    # @return [String] The API resource string
+    def self.Resource
+      "cards"
+    end
+    
     # Find a single card by the card multiverse id
     #
     # @param id [Integer] the multiverse id
     # @return [Card] the Card object response
     def self.find(id)
-      response = RestClient.get("cards/#{id}")
-      
-      if response.body['card'].nil?
-        raise ArgumentError, 'Card not found'
-      end
-      
-      new.from_json(response.body['card'].to_json)
+      QueryBuilder.new(Card).find(id)
     end
 
     # Get all cards from a query by paging through data
     #
     # @return [Array<Card>] Array of Card objects
     def self.all
-      cards = []
-      page = 0
-         
-      while true
-        where(page: page += 1)
-        response = RestClient.get('cards', query[:parameters])
-        data = response.body['cards']      
-        data.empty? ? break : data.each {|card| cards << new.from_json(card.to_json)}
-      end
-      
-      @query = nil
-      cards
+      QueryBuilder.new(Card).all
     end
     
-    # Execute a query and convert the response
-    # into a list of Card objects
+    # Adds a parameter to the hash of query parameters
     #
-    # @return [Array<Card>] Array of Card objects
-    def self.get
-      cards = []
-      response = RestClient.get('cards', query[:parameters])
-      data = response.body['cards']
-      
-      data.each do |card|
-        cards << new.from_json(card.to_json)
-      end
-      
-      @query = nil
-      cards
+    # @param args [Hash] the query parameter
+    # @return [QueryBuilder] the QueryBuilder
+    def self.where(args)
+      QueryBuilder.new(Card).where(args)
     end
   end
 end

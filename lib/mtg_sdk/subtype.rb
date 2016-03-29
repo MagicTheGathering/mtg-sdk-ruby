@@ -1,7 +1,5 @@
-require_relative 'resource'
-
 module MTG
-  class Subtype < Resource
+  class Subtype
     include RestClient
     
     # Get all subtypes

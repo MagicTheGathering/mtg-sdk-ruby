@@ -1,7 +1,5 @@
-require_relative 'resource'
-
 module MTG
-  class Type < Resource
+  class Type
     include RestClient
     
     # Get all types

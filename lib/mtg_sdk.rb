@@ -10,6 +10,7 @@ require "mtg_sdk/subtype"
 require "mtg_sdk/supertype"
 require "mtg_sdk/changelog"
 require "mtg_sdk/rest_client"
+require "mtg_sdk/query_builder"
 
 module MTG
   API_URL = 'https://api.magicthegathering.io'

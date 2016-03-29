@@ -1,7 +1,5 @@
-require_relative 'resource'
-
 module MTG
-  class Supertype < Resource
+  class Supertype
     include RestClient
     
     # Get all supertypes

@@ -23,6 +23,14 @@ class SetTest < Minitest::Test
     end
   end
   
+  def test_all_returns_all_sets
+    VCR.use_cassette('all_sets') do
+      sets = MTG::Set.all
+      
+      assert sets.length > 100
+    end
+  end
+  
   def test_generate_booster_returns_cards
     VCR.use_cassette('booster') do
       cards = MTG::Set.generate_booster('ktk')
