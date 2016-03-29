@@ -1,5 +1,11 @@
 #test/test_helper.rb
 require 'simplecov'
+require 'coveralls'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+])
 SimpleCov.start
 
 require_relative '../lib/mtg_sdk'
