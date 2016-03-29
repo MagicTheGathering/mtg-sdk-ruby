@@ -134,7 +134,7 @@ To change the API version (currently defaults to version 1)
     
 #### Get all cards, but only a specific page of data
 
-    cards = MTG::Card.where(page: 5).where(pageSize: 100).get
+    cards = MTG::Card.where(page: 5).where(pageSize: 100).all
     
 #### Find a set by code
 
