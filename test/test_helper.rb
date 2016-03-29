@@ -1,4 +1,7 @@
 #test/test_helper.rb
+require 'simplecov'
+SimpleCov.start
+
 require_relative '../lib/mtg_sdk'
 require 'minitest/autorun'
 require 'webmock/minitest'

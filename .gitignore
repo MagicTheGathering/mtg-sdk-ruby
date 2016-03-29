@@ -15,6 +15,7 @@ spec/reports
 test/tmp
 test/version_tmp
 test/fixtures
+coverage
 tmp
 *.bundle
 *.so
