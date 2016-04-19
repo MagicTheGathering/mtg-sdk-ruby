@@ -32,7 +32,7 @@ module MTG
     property :hand
     property :life
     property :reserved
-    property :release_date, as: :release_date, type: Date
+    property :release_date, as: :releaseDate, type: Date
     property :starter
     property :original_text, as: :originalText
     property :original_type, as: :originalType
@@ -41,6 +41,7 @@ module MTG
     property :id
     property :image_url, as: :imageUrl
     
+    collection :names
     collection :supertypes
     collection :subtypes
     collection :types
