@@ -1,6 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
-require 'open-uri'
+require 'erb'
 
 module MTG
   module RestClient
@@ -26,7 +26,7 @@ module MTG
     end
             
     def self.params_to_query(params)
-      params.map {|p, v| "#{p}=#{URI.escape(v.to_s)}"}.join('&')
+      params.map {|p, v| "#{p}=#{ERB::Util.url_encode(v.to_s)}"}.join('&')
     end
   end
 end

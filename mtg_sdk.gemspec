@@ -18,20 +18,19 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "minitest"
-  spec.add_development_dependency "vcr"
-  spec.add_development_dependency "webmock"
-  spec.add_development_dependency "simplecov"
-  spec.add_development_dependency "coveralls"
-  spec.add_development_dependency "codeclimate-test-reporter"
+  spec.add_development_dependency "bundler", "~> 1.11"
+  spec.add_development_dependency "rake", "~> 11.1"
+  spec.add_development_dependency "minitest", "~> 5.9"
+  spec.add_development_dependency "vcr", "~> 3.0"
+  spec.add_development_dependency "webmock", "~> 2.0"
+  spec.add_development_dependency "simplecov", "~> 0.11"
+  spec.add_development_dependency "coveralls", "~> 0.8"
+  spec.add_development_dependency "codeclimate-test-reporter", "~> 0.5"
 
-  spec.add_dependency "faraday"
-  spec.add_dependency "faraday_middleware"
-  spec.add_dependency "multi_xml"
-  spec.add_dependency "json"
-  spec.add_dependency "multi_json"
-  spec.add_dependency "roar"
+  spec.add_dependency "roar", "~> 1.0"
+  spec.add_dependency "json", "~> 1.8"
+  spec.add_dependency "multi_json", "~> 1.11"
+  spec.add_dependency "multi_xml", "~> 0.5"
+  spec.add_dependency "faraday_middleware", "~> 0.10"
   spec.add_dependency "virtus"
 end
