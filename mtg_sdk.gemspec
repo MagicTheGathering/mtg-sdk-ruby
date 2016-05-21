@@ -32,5 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "multi_json", "~> 1.11"
   spec.add_dependency "multi_xml", "~> 0.5"
   spec.add_dependency "faraday_middleware", "~> 0.10"
-  spec.add_dependency "virtus"
+  spec.add_dependency "virtus", "~> 1.0"
 end
