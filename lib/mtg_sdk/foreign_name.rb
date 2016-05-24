@@ -5,6 +5,6 @@ module MTG
     include Roar::JSON
     include LegalityRepresenter
   
-    attr_accessor :language, :name, :multiverse_id
+    attr_accessor :language, :name, :multiverse_id, :image_url
   end
 end

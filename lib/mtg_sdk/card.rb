@@ -9,7 +9,7 @@ module MTG
                   :rarity, :text, :flavor, :artist, :number, :power, :toughness, :loyalty, :multiverse_id, :variations,
                   :watermark, :border, :timeshifted, :hand, :life, :reserved, :release_date, :starter,
                   :rulings, :foreign_names, :printings, :original_text, :original_type, :legalities,
-                  :source, :image_url, :set, :id
+                  :source, :image_url, :set, :id, :set_name
     
     # Get the resource string
     #

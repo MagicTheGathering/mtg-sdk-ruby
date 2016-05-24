@@ -38,6 +38,7 @@ module MTG
     property :original_type, as: :originalType
     property :source
     property :set
+    property :set_name, as: :setName
     property :id
     property :image_url, as: :imageUrl
     

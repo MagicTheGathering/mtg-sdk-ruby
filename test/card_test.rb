@@ -15,6 +15,7 @@ class CardTest < Minitest::Test
       assert card.subtypes.any?{|subtype| subtype == 'Arcane'}
       assert_equal 'Rare', card.rarity
       assert_equal 'SOK', card.set
+      assert_equal 'Saviors of Kamigawa', card.set_name
       assert_equal "Target opponent chooses a number. You may have that player lose that much life. If you don't, that player sacrifices all but that many permanents.", card.text
       assert_equal "\"Life is a series of choices between bad and worse.\"\n—Toshiro Umezawa", card.flavor
       assert_equal 'Tim Hildebrandt', card.artist
@@ -23,7 +24,7 @@ class CardTest < Minitest::Test
       assert_equal 88803, card.multiverse_id
       assert_equal 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=88803&type=card', card.image_url
       assert card.rulings.any?{|ruling| ruling.date == Date.parse('2005-06-01')}
-      assert card.foreign_names.any?{|foreign_name| foreign_name.name == '破灭抉择'}
+      assert card.foreign_names.any?{|foreign_name| foreign_name.name == '破灭抉择' && foreign_name.image_url == 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=104898&type=card'}
       assert card.printings.any?{|printing| printing == 'SOK'}
       assert_equal "Target opponent chooses a number. You may have that player lose that much life. If you don't, that player sacrifices all but that many permanents.", card.original_text
       assert_equal 'Sorcery — Arcane', card.original_type
