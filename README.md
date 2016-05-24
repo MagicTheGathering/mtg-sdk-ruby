@@ -82,6 +82,7 @@ To change the API version (currently defaults to version 1)
     source
     image_url
     set
+    set_name
     id
 
 #### Set
