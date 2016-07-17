@@ -2,7 +2,6 @@ language: ruby
 before_install:
   - gem install bundler --version '1.12.5'
 rvm:
-  - 1.9.3
   - 2.1.2
 
 addons:
