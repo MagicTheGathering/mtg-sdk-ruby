@@ -64,4 +64,18 @@ class CardTest < Minitest::Test
       assert first_card.subtypes.include? 'Warrior'
     end
   end
+  
+  def test_all_returns_all_cards
+    VCR.use_cassette('all_cards') do
+      stub_request(:any, "https://api.magicthegathering.io/v1/cards").
+        to_return(:body => File.new('test/responses/sample_cards.json'), :status => 200, :headers => {"Content-Type"=> "application/json"})
+      
+      stub_request(:any, "https://api.magicthegathering.io/v1/cards?page=2").
+        to_return(:body => File.new('test/responses/no_cards.json'), :status => 200, :headers => {"Content-Type"=> "application/json"})
+        
+      cards = MTG::Card.all
+      
+      assert_equal 2, cards.length
+    end
+  end
 end
