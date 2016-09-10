@@ -1,5 +1,6 @@
 # Magic: The Gathering SDK
 
+[![mtg-developers on discord](https://img.shields.io/badge/discord-mtg%20developers-738bd7.svg)](https://discord.gg/qwGJNnP)
 [![Gem Version](https://badge.fury.io/rb/mtg_sdk.svg)](https://badge.fury.io/rb/mtg_sdk) 
 [![Build Status](https://travis-ci.org/MagicTheGathering/mtg-sdk-ruby.svg?branch=master)](https://travis-ci.org/MagicTheGathering/mtg-sdk-ruby)
 [![Dependency Status](https://gemnasium.com/MagicTheGathering/mtg-sdk-ruby.svg)](https://gemnasium.com/MagicTheGathering/mtg-sdk-ruby)
