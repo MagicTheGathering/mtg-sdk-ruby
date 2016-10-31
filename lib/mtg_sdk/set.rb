@@ -33,6 +33,14 @@ module MTG
     def self.all
       QueryBuilder.new(Set).all
     end
+
+    # Adds a parameter to the hash of query parameters
+    #
+    # @param args [Hash] the query parameter
+    # @return [QueryBuilder] the QueryBuilder
+    def self.where(args)
+      QueryBuilder.new(Set).where(args)
+    end
     
     # Generate a booster pack for a specific set
     

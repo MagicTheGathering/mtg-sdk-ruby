@@ -30,6 +30,16 @@ class SetTest < Minitest::Test
       assert sets.length > 100
     end
   end
+
+  def test_all_with_filter_returns_sets
+    VCR.use_cassette('all_sets_filtered') do
+      sets = MTG::Set.where(name: 'khans').all
+
+      set = sets[0]
+      assert_equal 'KTK', set.code
+      assert_equal 'Khans of Tarkir', set.name
+    end
+  end
   
   def test_generate_booster_returns_cards
     VCR.use_cassette('booster') do
