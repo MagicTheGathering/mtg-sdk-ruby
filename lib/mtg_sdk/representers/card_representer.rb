@@ -47,7 +47,7 @@ module MTG
     collection :subtypes
     collection :types
     collection :colors
-    collection :color_identities, as: :colorIdentity
+    collection :color_identity, as: :colorIdentity
     collection :variations
     collection :printings
     collection :legalities, extend: LegalityRepresenter, class: Legality

@@ -11,7 +11,7 @@ class CardTest < Minitest::Test
       assert_equal 6, card.cmc
       assert_equal 'Sorcery — Arcane', card.type
       assert card.colors.any?{|color| color == 'Black'}
-      assert card.color_identities.any?{|color_id| color == 'B'}
+      assert card.color_identity.any?{|color_id| color_id == 'B'}
       assert card.types.any?{|type| type == 'Sorcery'}
       assert card.subtypes.any?{|subtype| subtype == 'Arcane'}
       assert_equal 'Rare', card.rarity
