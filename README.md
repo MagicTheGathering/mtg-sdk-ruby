@@ -54,6 +54,7 @@ To change the API version (currently defaults to version 1)
     mana_cost
     cmc
     colors
+    color_identity
     type
     supertypes
     subtypes
