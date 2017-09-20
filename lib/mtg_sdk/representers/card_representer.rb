@@ -11,7 +11,7 @@ module MTG
   module CardRepresenter
     include Roar::JSON
     include Roar::Coercion
-    
+
     property :name
     property :layout
     property :mana_cost, as: :manaCost
@@ -41,12 +41,13 @@ module MTG
     property :set_name, as: :setName
     property :id
     property :image_url, as: :imageUrl
-    
+
     collection :names
     collection :supertypes
     collection :subtypes
     collection :types
     collection :colors
+    collection :color_identities, as: :colorIdentity
     collection :variations
     collection :printings
     collection :legalities, extend: LegalityRepresenter, class: Legality
