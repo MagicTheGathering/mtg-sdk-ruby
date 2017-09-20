@@ -11,6 +11,7 @@ class CardTest < Minitest::Test
       assert_equal 6, card.cmc
       assert_equal 'Sorcery — Arcane', card.type
       assert card.colors.any?{|color| color == 'Black'}
+      assert card.color_identity.any?{|color_id| color_id == 'B'}
       assert card.types.any?{|type| type == 'Sorcery'}
       assert card.subtypes.any?{|subtype| subtype == 'Arcane'}
       assert_equal 'Rare', card.rarity
@@ -32,7 +33,7 @@ class CardTest < Minitest::Test
       assert_equal '1c4aab072d52d283e902f2302afa255b39e0794b', card.id
     end
   end
-  
+
   def test_find_with_invalid_id_throws_exception
     VCR.use_cassette('invalid_id') do
       assert_raises ArgumentError do
@@ -40,7 +41,7 @@ class CardTest < Minitest::Test
       end
     end
   end
-  
+
   def test_where_with_page_size_and_page_returns_cards
     VCR.use_cassette('query_cards_pageSize') do
       cards = MTG::Card.where(pageSize: 10).where(page: 1).all
@@ -64,17 +65,17 @@ class CardTest < Minitest::Test
       assert first_card.subtypes.include? 'Warrior'
     end
   end
-  
+
   def test_all_returns_all_cards
     VCR.use_cassette('all_cards') do
       stub_request(:any, "https://api.magicthegathering.io/v1/cards").
         to_return(:body => File.new('test/responses/sample_cards.json'), :status => 200, :headers => {"Content-Type"=> "application/json"})
-      
+
       stub_request(:any, "https://api.magicthegathering.io/v1/cards?page=2").
         to_return(:body => File.new('test/responses/no_cards.json'), :status => 200, :headers => {"Content-Type"=> "application/json"})
-        
+
       cards = MTG::Card.all
-      
+
       assert_equal 2, cards.length
     end
   end
