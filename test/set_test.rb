@@ -61,12 +61,4 @@ class SetTest < Minitest::Test
       end
     end
   end
-
-  def test_service_timeout
-    VCR.use_cassette('service_timeout') do
-      assert_raises ArgumentError, "Unavailable Service" do
-        MTG::Set.all
-      end
-    end
-  end
 end
