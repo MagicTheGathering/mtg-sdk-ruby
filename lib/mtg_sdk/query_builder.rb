@@ -2,7 +2,7 @@ module MTG
   class QueryBuilder
     include RestClient
     attr_accessor :type, :query
-    
+
     def initialize(type)
       @type = type
       @query = {}
@@ -16,7 +16,7 @@ module MTG
       @query.merge!(args)
       self
     end
-    
+
     # Find a single resource by the resource id
     #
     # @param id [String] the resource id
@@ -24,13 +24,13 @@ module MTG
     def find(id)
       response = RestClient.get("#{@type.Resource}/#{id}")
       singular_resource = @type.Resource[0...-1]
-      if response.body[singular_resource].nil?
-        raise ArgumentError, 'Resource not found'
-      end
-      
+
+      raise ArgumentError, 'Resource not found' if response.body[singular_resource].nil?
+      raise ArgumentError, 'Unavailable Service' if unavailable_service?(response)
+
       type.new.from_json(response.body[singular_resource].to_json)
     end
-    
+
     # Get all resources from a query by paging through data
     #
     # @return [Array<Object>] Array of resources
@@ -43,13 +43,16 @@ module MTG
         page = @query[:page]
         fetch_all = false
       end
-      
+
       while true
         response = RestClient.get(@type.Resource, @query)
-        data = response.body[@type.Resource]      
+        data = response.body[@type.Resource]
+
+        raise ArgumentError, 'Unavailable Service' if unavailable_service?(response)
+
         if !data.empty?
           data.each {|item| list << @type.new.from_json(item.to_json)}
-          
+
           if !fetch_all
             break
           else
@@ -61,6 +64,12 @@ module MTG
       end
 
       return list
+    end
+
+    private
+
+    def unavailable_service?(response)
+      (500..599).include?(response.status)
     end
   end
 end
