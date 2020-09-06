@@ -8,10 +8,8 @@ class SetTest < Minitest::Test
       assert_equal 'KTK', set.code
       assert_equal 'Khans of Tarkir', set.name
       assert_equal 'expansion', set.type
-      assert_equal 'black', set.border
       assert set.booster.any? {|rarity| rarity == 'common'}
       assert_equal '2014-09-26', set.release_date
-      assert_equal 'ktk', set.magic_cards_info_code
     end
   end
 
@@ -45,7 +43,7 @@ class SetTest < Minitest::Test
     VCR.use_cassette('booster') do
       cards = MTG::Set.generate_booster('ktk')
 
-      assert cards.length == 15
+      assert cards.length == 14
       assert_equal 'KTK', cards.first.set
     end
   end
