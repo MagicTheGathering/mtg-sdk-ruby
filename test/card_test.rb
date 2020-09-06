@@ -28,9 +28,9 @@ class CardTest < Minitest::Test
       assert card.foreign_names.any?{|foreign_name| foreign_name.name == '破灭抉择' && foreign_name.image_url == 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=104898&type=card'}
       assert card.printings.any?{|printing| printing == 'SOK'}
       assert_equal "Target opponent chooses a number. You may have that player lose that much life. If you don't, that player sacrifices all but that many permanents.", card.original_text
-      assert_equal 'Sorcery — Arcane', card.original_type
+      assert_equal 'Sorcery - Arcane', card.original_type
       assert card.legalities.any?{|legality| legality.format == 'Commander' && legality.legality == 'Legal'}
-      assert_equal '1c4aab072d52d283e902f2302afa255b39e0794b', card.id
+      assert_equal '224a2a63-7be6-5e06-bf6b-e667727bf80b', card.id
     end
   end
 
