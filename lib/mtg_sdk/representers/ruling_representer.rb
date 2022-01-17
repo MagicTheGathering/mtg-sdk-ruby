@@ -6,7 +6,7 @@ module MTG
     include Roar::JSON
     include Roar::Coercion
   
-    property :date, type: Date
+    property :date, type: Types::Params::Date
     property :text
   end
 end
