@@ -32,7 +32,7 @@ module MTG
     property :hand
     property :life
     property :reserved
-    property :release_date, as: :releaseDate, type: Date
+    property :release_date, as: :releaseDate, type: Types::Params::Date
     property :starter
     property :original_text, as: :originalText
     property :original_type, as: :originalType
